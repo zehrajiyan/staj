@@ -28,3 +28,8 @@ group by d.ad;
 
 --departmana göre ortalama maas
 select d.ad, avg(c.maas) from departman d join calisan c on d.departman_id=c.departman_id group by d.ad;
+
+--maas sıralaması
+SELECT ad, soyad, maas,
+       DENSE_RANK() OVER(ORDER BY maas DESC) AS maas_sirasi
+FROM calisan;
