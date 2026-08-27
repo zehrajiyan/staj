@@ -14,8 +14,10 @@ git reset --hard           ---- değişiklikleri tamamen siler
 git revert                 ---- geçmişi silmez yaptığı işlemi geri alan yeni bir commit üretir.
 
 
-git log --online           ---- 
+git log --oneline           ---- yapılan commitlerin vs geçmiş kaydını gösterir.
 
 
-github a push edilmiş bir commiti geri alırken en doğru seçim git revert işlemidir.
+---> Github a push edilmiş bir commiti geri alırken en doğru seçim git revert işlemidir.
 Çünkü geçmişi silmez yapılan değişikliği yada hatayı geri alan yeni bir commit açar böylece geçmiş kaydı düzenli olur ve eski hataya istenildiği vakit dönüp bakılabilir. Ekip arkadaşlarıyla merge conflict yaşanmasını önler.
+
+--> Conflict denemesi : Geçici bir temp-branch açıp aynı dosya da değişiklikler yapılır. iki branch ten hangisindeki değişikliğin merge leneceği githubta karışıklığa sebep olabilir.
