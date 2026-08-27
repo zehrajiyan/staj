@@ -21,3 +21,6 @@ git log --oneline           ---- yapılan commitlerin vs geçmiş kaydını gös
 Çünkü geçmişi silmez yapılan değişikliği yada hatayı geri alan yeni bir commit açar böylece geçmiş kaydı düzenli olur ve eski hataya istenildiği vakit dönüp bakılabilir. Ekip arkadaşlarıyla merge conflict yaşanmasını önler.
 
 --> Conflict denemesi : geçici bir branch ile github daki conflict durumu gözlenir.
+
+
+---> bu satır deneme içindir.
