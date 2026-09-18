@@ -46,6 +46,23 @@ JOIN calisan c2 ON c1.maas = c2.maas AND c1.id <> c2.id;
 -- "Can"	"Öztürk"	45000.00
 -- "Merve"	"Aydın"	45000.00
 
+SELECT c1.ad, c1.soyad, c1.maas
+FROM calisan c1
+JOIN calisan c2 ON c1.maas = c2.maas; -- burada c1.id <> c2.id şartı yok, bu yüzden her çalışanın kendisiyle eşleşmesi de dahil olur. Bu nedenle aynı maaşı alan kişiler iki kez listelenir.
+
+-- "Mehmet"	"Demir"	58000.00
+-- "Ece"	"Yıldız"	80000.00
+-- "Can"	"Öztürk"	45000.00
+-- "Can"	"Öztürk"	45000.00
+-- "Umut"	"Arslan"	55000.00
+-- "Ayşe"	"Şahin"	52000.80
+-- "Ali"	"Çelik"	42000.00
+-- "Zeynep"	"Kaya"	72000.50
+-- "Ahmet"	"Yılmaz"	65000.00
+-- "Burcu"	"Koç"	49000.00
+-- "Merve"	"Aydın"	45000.00
+-- "Merve"	"Aydın"	45000.00
+
 
 
 --aynı departmanda olup aynı maaşı alanlar
@@ -112,3 +129,20 @@ FROM calisan;
 -- "Merve"	"Aydın"	45000.00	8
 -- "Can"	"Öztürk"	45000.00	8
 -- "Ali"	"Çelik"	42000.00	9
+
+SELECT ad, soyad, maas,
+       RANK() OVER(ORDER BY maas DESC) AS maas_sirasi
+FROM calisan;
+
+---burada RANK() fonksiyonu kullanıldığı için aynı maaşı alan kişiler aynı sırada listelenir ve bir sonraki sıra atlanır. Bu nedenle Ali 10. sırada yer alır.
+
+-- "Ece"	"Yıldız"	80000.00	1
+-- "Zeynep"	"Kaya"	72000.50	2
+-- "Ahmet"	"Yılmaz"	65000.00	3
+-- "Mehmet"	"Demir"	58000.00	4
+-- "Umut"	"Arslan"	55000.00	5
+-- "Ayşe"	"Şahin"	52000.80	6
+-- "Burcu"	"Koç"	49000.00	7
+-- "Merve"	"Aydın"	45000.00	8
+-- "Can"	"Öztürk"	45000.00	8
+-- "Ali"	"Çelik"	42000.00	10
